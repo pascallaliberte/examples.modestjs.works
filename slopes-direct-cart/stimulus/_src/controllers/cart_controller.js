@@ -4,7 +4,11 @@ export default class extends Controller {
   
   static targets = ["quantity", "item-subtotal", "subtotal"]
   
-  connect() {
+  updateSubtotal() {
+    
+  }
+  
+  broadcastNewQuantity() {
     
   }
 }
