@@ -21,27 +21,31 @@ layout: default
       </div>
       <div class="col-2">
         <label class="sr-only">Quantity</label>
-        <input type="number" data-behavior="cart-item-quantity" data-target="cart-item.quantity cart.quantity" value="1" />
+        <input type="number" value="1" 
+         data-target="cart-item.quantity cart.quantity" />
       </div>
       <div class="col-3 text-right">
         <span class="cart-item-price">
           <span class="cart-item-price-currency">$</span>
-          <span class="cart-item-price-subtotal" data-behavior="cart-item-subtotal" data-item-price="15.99" data-item-subtotal="15.99" data-product-id="sd001">15.99</span>
+          <span class="cart-item-price-subtotal" data-item-price="15.99" data-item-subtotal="15.99"
+           data-target="cart-item.subtotal cart.item-subtotal">15.99</span>
         </span>
       </div>
     </div>
-    <div data-product-id="sd002" data-behavior="cart-item" class="row cart-item">
+    <div data-controller="cart-item" class="row cart-item">
       <div class="col-7">
          Hiking Boots Appalachia
       </div>
       <div class="col-2">
         <label class="sr-only">Quantity</label>
-        <input type="number" data-behavior="cart-item-quantity" data-product-id="sd002" value="1" />
+        <input type="number" value="1"
+         data-target="cart-item.quantity cart.quantity" />
       </div>
       <div class="col-3 text-right">
         <span class="cart-item-price">
           <span class="cart-item-price-currency">$</span>
-          <span class="cart-item-price-subtotal" data-behavior="cart-item-subtotal" data-item-price="139.99" data-item-subtotal="139.99" data-product-id="sd002">139.99</span>
+          <span class="cart-item-price-subtotal" data-item-price="139.99" data-item-subtotal="139.99"
+           data-target="cart-item.subtotal cart.item-subtotal" >139.99</span>
         </span>
       </div>
     </div>
@@ -53,7 +57,7 @@ layout: default
     <div class="col-3 text-right">
       <span class="cart-subtotal-price">
         <span class="cart-subtotal-price-currency">$</span>
-        <span class="cart-subtotal-price-subtotal" data-behavior="cart-subtotal">155.98</span>
+        <span class="cart-subtotal-price-subtotal" data-target="cart.subtotal" >155.98</span>
       </span>
     </div>
   </div>
