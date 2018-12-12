@@ -13,15 +13,15 @@ layout: default
   </div>
 </div>
 
-<div class="container cart">
+<div class="container cart" data-controller="cart">
   <div class="cart-items">
-    <div data-product-id="sd001" data-behavior="cart-item" class="row cart-item">
+    <div data-controller="cart-item" class="row cart-item">
       <div class="col-7">
          Merino Wool Socks Hickers
       </div>
       <div class="col-2">
         <label class="sr-only">Quantity</label>
-        <input type="number" data-behavior="cart-item-quantity" data-product-id="sd001" value="1" />
+        <input type="number" data-behavior="cart-item-quantity" data-target="cart-item.quantity cart.quantity" value="1" />
       </div>
       <div class="col-3 text-right">
         <span class="cart-item-price">
