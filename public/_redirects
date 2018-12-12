@@ -1,0 +1,1 @@
+/:example/:variant/* /:example/:variant/public/:splat 200
