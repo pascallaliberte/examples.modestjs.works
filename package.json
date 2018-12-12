@@ -1,0 +1,9 @@
+{
+  "name": "examples.modestjs.works",
+  "version": "0.0.1",
+  "description": "Examples of using modest js approaches",
+  "main": "index.js",
+  "author": "Pascal Laliberté <pascal@pascallaliberte.me>",
+  "license": "MIT",
+  "private": false
+}
