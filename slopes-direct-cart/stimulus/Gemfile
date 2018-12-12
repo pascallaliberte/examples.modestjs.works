@@ -19,9 +19,9 @@ group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.6"
    gem 'jekyll-sitemap'
    gem 'jekyll-seo-tag'
-   gem 'octopress-minify-html'
+   # gem 'octopress-minify-html'
    gem 'jekyll-multiple-languages-plugin'
-   gem 'amp-jekyll'
+   # gem 'amp-jekyll'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
