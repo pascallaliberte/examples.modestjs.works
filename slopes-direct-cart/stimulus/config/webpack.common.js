@@ -1,9 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: {
@@ -17,7 +19,12 @@ module.exports = {
       template: './_src/template/default.html',
       filename: '../_layouts/default.html',
     }),
-    new ExtractTextPlugin('[name].css'),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
     new CopyWebpackPlugin([{
       from: path.resolve('_images'),
       to: 'images/',
@@ -34,21 +41,19 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 1 } },
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: {
-                  path: 'config/postcss.config.js',
-                },
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: 'config/postcss.config.js',
               },
             },
-            { loader: 'sass-loader' },
-          ],
-        }),
+          },
+          { loader: 'sass-loader' },
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
