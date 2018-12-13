@@ -7,12 +7,54 @@ layout: default
     <div class="col">
       <strong>Slopes</strong><br>Direct
     </div>
-    <div class="col text-right" data-behavior="cart-quantity" data-quantity="{{ site.data.cart.items | size }}"></div>
+    <div class="col text-right">
+      Cart: <strong data-behavior="cart-icon-quantity">2</strong>
+    </div>
   </div>
 </div>
 
-
-<div data-behavior="cart" 
-  data-items="{{ site.data.cart.items | jsonify | xml_escape }}"
-  data-subtotal="{{ site.data.cart.subtotal | jsonify | xml_escape }}">
+<div class="container cart">
+  <div class="cart-items">
+    <div data-product-id="sd001" data-behavior="cart-item" class="row cart-item">
+      <div class="col-7">
+         Merino Wool Socks Hickers
+      </div>
+      <div class="col-2">
+        <label class="sr-only">Quantity</label>
+        <input type="number" data-behavior="cart-item-quantity" data-product-id="sd001" value="1" />
+      </div>
+      <div class="col-3 text-right">
+        <span class="cart-item-price">
+          <span class="cart-item-price-currency">$</span>
+          <span class="cart-item-price-subtotal" data-behavior="cart-item-subtotal" data-item-price="15.99" data-item-subtotal="15.99" data-product-id="sd001">15.99</span>
+        </span>
+      </div>
+    </div>
+    <div data-product-id="sd002" data-behavior="cart-item" class="row cart-item">
+      <div class="col-7">
+         Hiking Boots Appalachia
+      </div>
+      <div class="col-2">
+        <label class="sr-only">Quantity</label>
+        <input type="number" data-behavior="cart-item-quantity" data-product-id="sd002" value="1" />
+      </div>
+      <div class="col-3 text-right">
+        <span class="cart-item-price">
+          <span class="cart-item-price-currency">$</span>
+          <span class="cart-item-price-subtotal" data-behavior="cart-item-subtotal" data-item-price="139.99" data-item-subtotal="139.99" data-product-id="sd002">139.99</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-9 text-right">
+      Subtotal
+    </div>
+    <div class="col-3 text-right">
+      <span class="cart-subtotal-price">
+        <span class="cart-subtotal-price-currency">$</span>
+        <span class="cart-subtotal-price-subtotal" data-behavior="cart-subtotal">155.98</span>
+      </span>
+    </div>
+  </div>
 </div>
