@@ -2,7 +2,6 @@ import { Controller } from "stimulus"
 import roundCurrency from "../lib/roundCurrency"
 
 export default class extends Controller {
-  
   static targets = ["quantity", "subtotal"]
   
   updateSubtotal() {
@@ -20,6 +19,19 @@ export default class extends Controller {
   }
   
   broadcastNewQuantity() {
+    let newQuantity = 0
     
+    this.quantityTargets.forEach((quantityTarget) => {
+      const quantity = parseInt(quantityTarget.value, 10)
+      newQuantity += quantity
+    })
+    
+    const event = new CustomEvent('cart-quantity-updated', { 
+      detail: {
+        newQuantity,
+      },
+    });
+    
+    document.dispatchEvent(event)
   }
 }

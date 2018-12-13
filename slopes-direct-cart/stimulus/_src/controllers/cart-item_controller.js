@@ -2,7 +2,6 @@ import { Controller } from "stimulus"
 import roundCurrency from "../lib/roundCurrency"
 
 export default class extends Controller {
-  
   static targets = ["quantity", "subtotal"]
   
   updateSubtotal() {

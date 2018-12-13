@@ -7,8 +7,8 @@ layout: default
     <div class="col">
       <strong>Slopes</strong><br>Direct
     </div>
-    <div class="col text-right">
-      Cart: <strong data-behavior="cart-icon-quantity">{{ site.data.cart.items | size }}</strong>
+    <div class="col text-right" data-controller="cart-quantity" data-action="cart-quantity-updated@document->cart-quantity#updateQuantity">
+      Cart: <strong data-target="cart-quantity.quantity">{{ site.data.cart.items | size }}</strong>
     </div>
   </div>
 </div>
