@@ -39,6 +39,7 @@ export default {
   watch: {
     quantity(newVal) {
       this.subtotal = newVal * this.unitPrice
+      this.$emit('update:item-subtotal')
     }
   }
 }

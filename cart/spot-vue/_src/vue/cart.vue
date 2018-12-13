@@ -6,6 +6,7 @@
         :quantity.sync="item.quantity"
         :subtotal.sync="item.subtotal"
         :unit-price="item.unit_price"
+        v-on:update:item-subtotal="updateSubtotal()"
         class="row cart-item">
       </cart-item>
     </div>
@@ -39,6 +40,13 @@ export default {
   mounted() {
     this.items = JSON.parse(this.$el.parentNode.getAttribute('data-items'))
     this.subtotal = JSON.parse(this.$el.parentNode.getAttribute('data-subtotal'))
+  },
+  methods: {
+    updateSubtotal() {
+      this.subtotal = this.items.map((item) => item.subtotal).reduce((accumulator, itemSubtotal) => {
+        return accumulator + itemSubtotal
+      }, 0)
+    }
   }
 }
 </script>
