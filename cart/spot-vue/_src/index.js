@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!el) return
   
   new Vue({
-    el,
+    el: el.appendChild(document.createElement('cart')),
     render: h => h(Cart),
   })
 })
