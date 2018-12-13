@@ -8,11 +8,10 @@ export default class extends Controller {
   updateSubtotal() {
     if (!this.hasQuantityTarget || !this.hasSubtotalTarget) return
     
-    const quantity = parseInt(this.quantityTarget.value)
-    const price = parseFloat(this.subtotalTarget.getAttribute('data-item-price'))
+    const quantity = parseInt(this.quantityTarget.value, 10)
+    const price = parseFloat(this.quantityTarget.getAttribute('data-item-price'))
     const subtotal = quantity * price
     
-    this.subtotalTarget.setAttribute('data-item-subtotal', subtotal)
     this.subtotalTarget.textContent = roundCurrency(subtotal)
   }
 }
