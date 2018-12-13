@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<div class="container header my-3">
+  <div class="row justify-content-between">
+    <div class="col">
+      <strong>Slopes</strong><br>Direct
+    </div>
+    <div class="col text-right" data-behavior="cart-quantity" data-quantity="{{ site.data.cart.items | size }}"></div>
+  </div>
+</div>
+
+
+<div data-behavior="cart" 
+  data-items="{{ site.data.cart.items | jsonify | xml_escape }}"
+  data-subtotal="{{ site.data.cart.subtotal | jsonify | xml_escape }}">
+</div>
