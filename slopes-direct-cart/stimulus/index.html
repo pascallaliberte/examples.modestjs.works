@@ -8,52 +8,35 @@ layout: default
       <strong>Slopes</strong><br>Direct
     </div>
     <div class="col text-right">
-      Cart: <strong data-behavior="cart-icon-quantity">2</strong>
+      Cart: <strong data-behavior="cart-icon-quantity">{{ site.data.cart.items | size }}</strong>
     </div>
   </div>
 </div>
 
 <div class="container cart" data-controller="cart">
   <div class="cart-items">
+    {% for item in site.data.cart.items %}
     <div data-controller="cart-item" class="row cart-item">
       <div class="col-7">
-         Merino Wool Socks Hickers
+         {{ item.item_name }}
       </div>
       <div class="col-2">
         <label class="sr-only">Quantity</label>
-        <input type="number" value="1" 
+        <input type="number" value="{{ item.quantity }}" 
          data-target="cart-item.quantity cart.quantity"
          data-action="change->cart#updateSubtotal change->cart-item#updateSubtotal change->cart#broadcastNewQuantity"
-         data-item-price="15.99"
+         data-item-price="{{ item.unit_price }}"
          />
       </div>
       <div class="col-3 text-right">
         <span class="cart-item-price">
           <span class="cart-item-price-currency">$</span>
           <span class="cart-item-price-subtotal"
-           data-target="cart-item.subtotal">15.99</span>
+           data-target="cart-item.subtotal">{{ item.subtotal }}</span>
         </span>
       </div>
     </div>
-    <div data-controller="cart-item" class="row cart-item">
-      <div class="col-7">
-         Hiking Boots Appalachia
-      </div>
-      <div class="col-2">
-        <label class="sr-only">Quantity</label>
-        <input type="number" value="1"
-         data-target="cart-item.quantity cart.quantity"
-         data-action="change->cart#updateSubtotal change->cart-item#updateSubtotal change->cart#broadcastNewQuantity"
-         data-item-price="139.99" />
-      </div>
-      <div class="col-3 text-right">
-        <span class="cart-item-price">
-          <span class="cart-item-price-currency">$</span>
-          <span class="cart-item-price-subtotal"
-           data-target="cart-item.subtotal" >139.99</span>
-        </span>
-      </div>
-    </div>
+    {% endfor %}
   </div>
   <div class="row">
     <div class="col-9 text-right">
@@ -62,7 +45,7 @@ layout: default
     <div class="col-3 text-right">
       <span class="cart-subtotal-price">
         <span class="cart-subtotal-price-currency">$</span>
-        <span class="cart-subtotal-price-subtotal" data-target="cart.subtotal" >155.98</span>
+        <span class="cart-subtotal-price-subtotal" data-target="cart.subtotal" >{{ site.data.cart.subtotal }}</span>
       </span>
     </div>
   </div>

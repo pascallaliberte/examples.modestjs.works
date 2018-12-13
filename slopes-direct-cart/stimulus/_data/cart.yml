@@ -1,0 +1,12 @@
+items: 
+  -
+    item_name: Merino Wool Socks Hickers
+    unit_price: 15.99
+    quantity: 1
+    subtotal: 15.99
+  - 
+    item_name: Hiking Boots Appalachia
+    unit_price: 139.99
+    quantity: 1
+    subtotal: 139.99
+subtotal: 155.98
