@@ -1,12 +1,12 @@
 <template>
   <div class="container cart">
     <div class="cart-items">
-      <cart-item v-for="item in items" :index="item.item_name" 
+      <cart-item v-for="item in items" :key="item.item_name" 
         :item-name="item.item_name"
         :quantity.sync="item.quantity"
         :subtotal.sync="item.subtotal"
         :unit-price="item.unit_price"
-        v-on:update:item-subtotal="updateSubtotal()"
+        v-on:update:subtotal="updateSubtotal()"
         class="row cart-item">
       </cart-item>
     </div>
@@ -15,10 +15,12 @@
         Subtotal
       </div>
       <div class="col-3 text-right">
-        <span class="cart-subtotal-price">
-          <span class="cart-subtotal-price-currency">$</span>
-          <span class="cart-subtotal-price-subtotal">{{ subtotal }}</span>
-        </span>
+        <currency
+         :number="subtotal"
+         class-prefix="cart-subtotal-price"
+         number-class-suffix="subtotal"
+         >
+        </currency>
       </div>
     </div>
   </div>
@@ -26,10 +28,13 @@
 
 <script>
 import CartItem from './cart-item.vue'
+import Currency from './currency.vue'
+import Vue from 'vue'
 
 export default {
   components: {
-    CartItem
+    CartItem,
+    Currency
   },
   data() {
     return {

@@ -5,19 +5,32 @@
     </div>
     <div class="col-2">
       <label class="sr-only">Quantity</label>
-      <input type="number" v-model="quantity" />
+      <input type="number" v-model="reactiveQuantity" />
     </div>
     <div class="col-3 text-right">
-      <span class="cart-item-price">
-        <span class="cart-item-price-currency">$</span>
-        <span class="cart-item-price-subtotal">{{ subtotal }}</span>
-      </span>
+      <currency
+       :number="reactiveSubtotal"
+       class-prefix="cart-item-price"
+       number-class-suffix="subtotal"
+       >
+      </currency>
     </div>
   </div>
 </template>
 
 <script>
+import Currency from './currency.vue'
+
 export default {
+  components: {
+    Currency,
+  },
+  data() {
+    return {
+      reactiveSubtotal: 0,
+      reactiveQuantity: 0,
+    }
+  },
   props: {
     itemName: {
       type: String,
@@ -36,11 +49,26 @@ export default {
       default: 0,
     }
   },
+  mounted() {
+    this.reactiveQuantity = this.quantity
+    this.reactiveSubtotal = this.subtotal
+  },
   watch: {
     quantity(newVal) {
-      this.subtotal = newVal * this.unitPrice
-      this.$emit('update:item-subtotal')
-    }
+      this.reactiveQuantity = this.quantity
+    },
+    subtotal(newVal) {
+      this.reactiveSubtotal = this.subtotal
+    },
+    reactiveQuantity(newVal, oldVal) {
+      if (newVal === oldVal) return
+      this.reactiveSubtotal = newVal * this.unitPrice
+      this.$emit('update:quantity', newVal)
+    },
+    reactiveSubtotal(newVal, oldVal) {
+      if (newVal === oldVal) return
+      this.$emit('update:subtotal', newVal)
+    },
   }
 }
 </script>
