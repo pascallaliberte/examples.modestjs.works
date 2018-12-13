@@ -48,8 +48,7 @@ module.exports = {
       {
         test: /\.(css|scss)$/,
         use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          { loader: 'vue-style-loader' },
+          devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { importLoaders: 1 } },
           {
             loader: 'postcss-loader',

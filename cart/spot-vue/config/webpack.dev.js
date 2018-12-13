@@ -6,6 +6,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = Merge(CommonConfig, {
+  mode: 'development',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve('assets'),
