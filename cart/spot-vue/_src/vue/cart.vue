@@ -1,21 +1,13 @@
 <template>
   <div class="container cart">
     <div class="cart-items">
-      <div v-for="item in items" :index="item.item_name" class="row cart-item">
-        <div class="col-7">
-           {{ item.item_name }}
-        </div>
-        <div class="col-2">
-          <label class="sr-only">Quantity</label>
-          <input type="number" v-model="item.quantity" />
-        </div>
-        <div class="col-3 text-right">
-          <span class="cart-item-price">
-            <span class="cart-item-price-currency">$</span>
-            <span class="cart-item-price-subtotal">{{ item.subtotal }}</span>
-          </span>
-        </div>
-      </div>
+      <cart-item v-for="item in items" :index="item.item_name" 
+        :item-name="item.item_name"
+        :quantity.sync="item.quantity"
+        :subtotal.sync="item.subtotal"
+        :unit-price="item.unit_price"
+        class="row cart-item">
+      </cart-item>
     </div>
     <div class="row">
       <div class="col-9 text-right">
@@ -32,7 +24,12 @@
 </template>
 
 <script>
+import CartItem from './cart-item.vue'
+
 export default {
+  components: {
+    CartItem
+  },
   data() {
     return {
       items: {},
