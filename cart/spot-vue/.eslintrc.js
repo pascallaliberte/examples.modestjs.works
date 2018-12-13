@@ -1,6 +1,11 @@
 const config = {
-  "parser": "babel-eslint",
-  "extends": "airbnb-base",
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "babel-eslint",
+  },
+  "extends": [
+    "airbnb-base"
+  ],
   "env": {
     "browser": true
   },
@@ -11,6 +16,7 @@ const config = {
     "quotes": 0,
     "class-methods-use-this": 0,
     "padded-blocks": 0,
+    "no-new": 0,
   }
 };
 

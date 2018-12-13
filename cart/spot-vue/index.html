@@ -14,6 +14,10 @@ layout: default
 </div>
 
 <div class="container cart" data-controller="cart">
+  
+  <div data-behavior="cart">
+  </div>
+  
   <div class="cart-items">
     {% for item in site.data.cart.items %}
     <div data-controller="cart-item" class="row cart-item">

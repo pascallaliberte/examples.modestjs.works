@@ -1,9 +1,16 @@
-import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers"
+import Vue from 'vue'
+import Cart from './vue/cart.vue'
 
 // CSS and SASS files
 import './index.scss';
 
-const application = Application.start()
-const context = require.context("./controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
+
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.querySelector('[data-behavior="cart"]')
+  if (!el) return
+  
+  new Vue({
+    el,
+    render: h => h(Cart),
+  })
+})
