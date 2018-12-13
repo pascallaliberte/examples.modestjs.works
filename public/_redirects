@@ -1,1 +1,1 @@
-/:example/:variant/* /:example/:variant/public/:splat 200
+/:example/:variant/* /:example/:variant/_site/:splat 200
