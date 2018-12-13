@@ -245,3 +245,28 @@ a {
   }
 
 }
+
+.container {
+  max-width: 30rem;
+}
+
+.cart {
+  margin-top: 10rem;
+}
+
+input[type="number"] {
+  width: 3rem;
+  text-align: center;
+}
+
+.cart-item {
+  padding: 1rem 0;
+}
+
+.cart-items {
+  border: 1px solid #dcdcdc;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 1rem;
+  padding: 0.3rem 0;
+}
