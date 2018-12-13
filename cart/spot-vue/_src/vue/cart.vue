@@ -6,6 +6,7 @@
         :quantity.sync="item.quantity"
         :subtotal.sync="item.subtotal"
         :unit-price="item.unit_price"
+        v-on:update:quantity="broadcastNewQuantity()"
         v-on:update:subtotal="updateSubtotal()"
         class="row cart-item">
       </cart-item>
@@ -51,6 +52,19 @@ export default {
       this.subtotal = this.items.map((item) => item.subtotal).reduce((accumulator, itemSubtotal) => {
         return accumulator + itemSubtotal
       }, 0)
+    },
+    broadcastNewQuantity() {
+      let newQuantity = this.items.map((item) => parseInt(item.quantity)).reduce((accumulator, itemQuantity) => {
+        return accumulator + itemQuantity
+      }, 0)
+      
+      const event = new CustomEvent('cart-quantity-updated', { 
+        detail: {
+          newQuantity,
+        },
+      });
+      
+      document.dispatchEvent(event)
     }
   }
 }
