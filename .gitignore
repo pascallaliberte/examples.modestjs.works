@@ -1,2 +1,4 @@
 boilerplate/
 node_modules/
+public/*
+!public/_redirects

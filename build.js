@@ -1,5 +1,6 @@
 yaml = require('js-yaml');
 fs   = require('fs');
+mv   = require('mv');
  
 // Get document, or throw exception on error
 try {
@@ -10,6 +11,12 @@ try {
     var dir = jekyllInstances[i]
     console.log(`\n\nBuilding ${dir}\n\n`)
     execSync(`cd ${dir} && yarn && yarn run build`);
+    
+    mv(`${dir}/_site`, `public/${dir}/`, {mkdirp: true}, function(err) {
+      if (err) {
+        console.log(err)
+      }
+    });
   }
   
 } catch (e) {
