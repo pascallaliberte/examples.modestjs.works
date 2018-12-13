@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader')
 
 const devMode = process.env.NODE_ENV !== 'production'
 
@@ -16,7 +15,6 @@ module.exports = {
     new FaviconsWebpackPlugin({
       logo: './icon.png',
     }),
-    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: './_src/template/default.html',
       filename: '../_layouts/default.html',
@@ -42,14 +40,9 @@ module.exports = {
         },
       },
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-      },
-      {
         test: /\.(css|scss)$/,
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          { loader: 'vue-style-loader' },
           { loader: 'css-loader', options: { importLoaders: 1 } },
           {
             loader: 'postcss-loader',
@@ -75,10 +68,5 @@ module.exports = {
         ],
       },
     ],
-  },
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-    },
   }
 };
