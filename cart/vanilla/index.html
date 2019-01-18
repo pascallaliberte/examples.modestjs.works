@@ -8,43 +8,30 @@ layout: default
       <strong>Slopes</strong><br>Direct
     </div>
     <div class="col text-right cart-icon-quantity-wrapper">
-      Cart <strong data-behavior="cart-icon-quantity" class="cart-icon-quantity">2</strong>
+      Cart <strong data-behavior="cart-icon-quantity" class="cart-icon-quantity">{{ site.data.cart.items | size }}</strong>
     </div>
   </div>
 </div>
 
 <div class="container cart">
   <div class="cart-items">
-    <div data-product-id="sd001" data-behavior="cart-item" class="row cart-item">
+    {% for item in site.data.cart.items %}
+    <div data-product-id="{{ item.product_id }}" data-behavior="cart-item" class="row cart-item">
       <div class="col-7">
-         Merino Wool Socks Hickers
+         {{ item.item_name }}
       </div>
       <div class="col-2">
         <label class="sr-only">Quantity</label>
-        <input type="number" data-behavior="cart-item-quantity" data-product-id="sd001" value="1" />
+        <input type="number" data-behavior="cart-item-quantity" data-product-id="{{ item.product_id }}" value="{{ item.quantity }}" />
       </div>
       <div class="col-3 text-right">
         <span class="cart-item-price">
           <span class="cart-item-price-currency">$</span>
-          <span class="cart-item-price-subtotal" data-behavior="cart-item-subtotal" data-item-price="15.99" data-item-subtotal="15.99" data-product-id="sd001">15.99</span>
+          <span class="cart-item-price-subtotal" data-behavior="cart-item-subtotal" data-item-price="{{ item.unit_price }}" data-item-subtotal="{{ item.subtotal }}" data-product-id="{{ item.product_id }}">{{ item.subtotal }}</span>
         </span>
       </div>
     </div>
-    <div data-product-id="sd002" data-behavior="cart-item" class="row cart-item">
-      <div class="col-7">
-         Hiking Boots Appalachia
-      </div>
-      <div class="col-2">
-        <label class="sr-only">Quantity</label>
-        <input type="number" data-behavior="cart-item-quantity" data-product-id="sd002" value="1" />
-      </div>
-      <div class="col-3 text-right">
-        <span class="cart-item-price">
-          <span class="cart-item-price-currency">$</span>
-          <span class="cart-item-price-subtotal" data-behavior="cart-item-subtotal" data-item-price="139.99" data-item-subtotal="139.99" data-product-id="sd002">139.99</span>
-        </span>
-      </div>
-    </div>
+    {% endfor %}
   </div>
   <div class="row">
     <div class="col-9 text-right">
@@ -53,7 +40,7 @@ layout: default
     <div class="col-3 text-right">
       <span class="cart-subtotal-price">
         <span class="cart-subtotal-price-currency">$</span>
-        <span class="cart-subtotal-price-subtotal" data-behavior="cart-subtotal">155.98</span>
+        <span class="cart-subtotal-price-subtotal" data-behavior="cart-subtotal">{{ site.data.cart.subtotal }}</span>
       </span>
     </div>
   </div>
