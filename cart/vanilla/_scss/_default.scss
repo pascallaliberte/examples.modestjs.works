@@ -251,7 +251,7 @@ a {
 }
 
 .cart {
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
 
 input[type="number"] {
@@ -261,6 +261,24 @@ input[type="number"] {
 
 .cart-item {
   padding: 1rem 0;
+  margin-left: 0;
+  margin-right: 0;
+  border-bottom: 1px solid #dcdcdc;
+  
+  &:first-child {
+    border-top: 1px solid #979797;
+  }
+  &:last-child {
+    border-bottom: 1px solid #979797;
+  }
+  
+  > div:first-child {
+    padding-left: 0;
+  }
+  
+  > div:last-child {
+    padding-right: 0;
+  }
 }
 
 .cart-items {
