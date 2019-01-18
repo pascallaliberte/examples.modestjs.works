@@ -16,15 +16,16 @@ layout: default
 <div class="container cart">
   <div class="cart-items">
     {% for item in site.data.cart.items %}
-    <div data-product-id="{{ item.product_id }}" data-behavior="cart-item" class="row cart-item">
-      <div class="col-7">
-         {{ item.item_name }}
+    <div data-product-id="{{ item.product_id }}" data-behavior="cart-item" class="row cart-item align-items-center">
+      <div class="col-7 d-flex flex-column justify-content-start align-items-start">
+         <span class="cart-item-info-name">{{ item.item_name }}</span>
+         <span class="cart-item-info-price">${{ item.unit_price }}</span>
       </div>
-      <div class="col-2">
+      <div class="col-2 d-flex flex-column justify-content-center">
         <label class="sr-only">Quantity</label>
         <input type="number" data-behavior="cart-item-quantity" data-product-id="{{ item.product_id }}" value="{{ item.quantity }}" />
       </div>
-      <div class="col-3 text-right">
+      <div class="col-3 d-flex flex-column align-items-end text-right justify-content-center">
         <span class="cart-item-price">
           <span class="cart-item-price-currency">$</span>
           <span class="cart-item-price-subtotal" data-behavior="cart-item-subtotal" data-item-price="{{ item.unit_price }}" data-item-subtotal="{{ item.subtotal }}" data-product-id="{{ item.product_id }}">{{ item.subtotal }}</span>
@@ -34,14 +35,14 @@ layout: default
     {% endfor %}
   </div>
   <div class="row">
-    <div class="col-9 text-right">
+    <div class="col-9 text-right cart-subtotal-label">
       Subtotal
     </div>
     <div class="col-3 text-right">
-      <span class="cart-subtotal-price">
+      <strong class="cart-subtotal-price">
         <span class="cart-subtotal-price-currency">$</span>
         <span class="cart-subtotal-price-subtotal" data-behavior="cart-subtotal">{{ site.data.cart.subtotal }}</span>
-      </span>
+      </strong>
     </div>
   </div>
 </div>
