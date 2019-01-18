@@ -4,7 +4,7 @@ $container-width: 1200px;
 $container-padding: 30px;
 
 $primary-color: #C8385A;
-$text-color: #333;
+$text-color: #676767;
 $link-color: #7F7F7F;
 
 $font-xl: 58px;
@@ -269,4 +269,46 @@ input[type="number"] {
   border-right: none;
   margin-bottom: 1rem;
   padding: 0.3rem 0;
+}
+
+.cart-icon-quantity-wrapper {
+  position: relative;
+  padding-top: 35px;
+  width: 60px;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  font-weight: 900;
+  padding-right: 11px;
+}
+
+.cart-icon-quantity {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
+  background-image: url(/assets/images/cart-icon-quantity.svg);
+  width: 60px;
+  height: 33px;
+  padding-right: 13px;
+  padding-top: 11px;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.brand {
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  font-weight: 50;
+  text-transform: uppercase;
+  line-height: (19 / 16);
+  strong {
+    letter-spacing: 0.2em;
+    font-weight: 900;
+  }
 }
