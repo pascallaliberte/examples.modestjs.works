@@ -299,6 +299,10 @@ input[type="number"] {
   letter-spacing: 0.15em;
   font-weight: 900;
   padding-right: 11px;
+  
+  @include media-breakpoint-down(xs) {
+    margin-right: 10px;
+  }
 }
 
 .cart-icon-quantity {
