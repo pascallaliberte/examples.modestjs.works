@@ -3,12 +3,13 @@ layout: default
 ---
 
 <div class="container header my-3">
-  <div class="row justify-content-between">
-    <div class="col">
+  <div class="row justify-content-between align-items-center">
+    <div class="col brand">
       <strong>Slopes</strong><br>Direct
     </div>
-    <div class="col text-right" data-controller="cart-quantity" data-action="cart-quantity-updated@document->cart-quantity#updateQuantity">
-      Cart: <strong data-target="cart-quantity.quantity">{{ site.data.cart.items | size }}</strong>
+    <div class="col text-right cart-icon-quantity-wrapper"
+      data-controller="cart-quantity" data-action="cart-quantity-updated@document->cart-quantity#updateQuantity">
+      Cart <strong data-target="cart-quantity.quantity" class="cart-icon-quantity">{{ site.data.cart.items | size }}</strong>
     </div>
   </div>
 </div>
@@ -17,10 +18,11 @@ layout: default
   <div class="cart-items">
     {% for item in site.data.cart.items %}
     <div data-controller="cart-item" class="row cart-item">
-      <div class="col-7">
-         {{ item.item_name }}
+      <div class="col-6 col-sm-7 d-flex flex-column justify-content-start align-items-start">
+         <span class="cart-item-info-name">{{ item.item_name }}</span>
+         <span class="cart-item-info-price">${{ item.unit_price }}</span>
       </div>
-      <div class="col-2">
+      <div class="col-2 col-sm-2 d-flex flex-column justify-content-center">
         <label class="sr-only">Quantity</label>
         <input type="number" value="{{ item.quantity }}" 
          data-target="cart-item.quantity cart.quantity"
@@ -28,10 +30,9 @@ layout: default
          data-item-price="{{ item.unit_price }}"
          />
       </div>
-      <div class="col-3 text-right">
+      <div class="col-4 col-sm-3 d-flex flex-column align-items-end text-right justify-content-center">
         <span class="cart-item-price">
-          <span class="cart-item-price-currency">$</span>
-          <span class="cart-item-price-subtotal"
+          <span class="cart-item-price-currency">$</span><span class="cart-item-price-subtotal"
            data-target="cart-item.subtotal">{{ item.subtotal }}</span>
         </span>
       </div>
@@ -39,14 +40,14 @@ layout: default
     {% endfor %}
   </div>
   <div class="row">
-    <div class="col-9 text-right">
+    <div class="col-9 text-right cart-subtotal-label">
       Subtotal
     </div>
     <div class="col-3 text-right">
-      <span class="cart-subtotal-price">
-        <span class="cart-subtotal-price-currency">$</span>
-        <span class="cart-subtotal-price-subtotal" data-target="cart.subtotal" >{{ site.data.cart.subtotal }}</span>
-      </span>
+      <strong class="cart-subtotal-price">
+        <span class="cart-subtotal-price-currency">$</span><span class="cart-subtotal-price-subtotal"
+         data-target="cart.subtotal" >{{ site.data.cart.subtotal }}</span>
+      </strong>
     </div>
   </div>
 </div>

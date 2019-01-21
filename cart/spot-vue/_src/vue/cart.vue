@@ -12,16 +12,18 @@
       </cart-item>
     </div>
     <div class="row">
-      <div class="col-9 text-right">
+      <div class="col-9 text-right cart-subtotal-label">
         Subtotal
       </div>
       <div class="col-3 text-right">
-        <currency
-         :number="subtotal"
-         class-prefix="cart-subtotal-price"
-         number-class-suffix="subtotal"
-         >
-        </currency>
+        <strong>
+          <currency
+           :number="subtotal"
+           class-prefix="cart-subtotal-price"
+           number-class-suffix="subtotal"
+           >
+          </currency>
+        </strong>
       </div>
     </div>
   </div>

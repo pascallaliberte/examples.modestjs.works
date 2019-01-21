@@ -1,10 +1,11 @@
 <nav class="navigation" role="navigation">
   {% assign default_paths = site.pages | map: "path" %}
   {% assign page_paths = site.navigation_pages | default: default_paths %}
-  <a class="navigation__branding" href="{{ "/" | relative_url }}">
+  <span class="navigation__branding">
     <span class="navigation__title">{{ site.title | escape }}</span>
-  </a>
+  </span>
   <div class="navigation__links">
+    <a class="navigation__link" href="{{ site.repo }}">See source on GitHub</a>
     {% if page_paths %}
       {% for path in page_paths %}
         {% assign my_page = site.pages | where: "path", path | first %}
