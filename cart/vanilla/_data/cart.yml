@@ -3,8 +3,8 @@ items:
     item_name: Merino Wool Socks Hickers
     product_id: sd001
     unit_price: 15.99
-    quantity: 1
-    subtotal: 15.99
+    quantity: 2
+    subtotal: 31.98
   - 
     item_name: Hiking Boots Appalachia
     product_id: sd002
