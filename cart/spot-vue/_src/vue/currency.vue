@@ -1,7 +1,6 @@
 <template lang="html">
   <span :class="classPrefix">
-    <span :class="`${classPrefix}-currency`">$</span>
-    <span :class="`${classPrefix}-${numberClassSuffix}`">{{ numberFormatted }}</span>
+    <span :class="`${classPrefix}-currency`">$</span><span :class="`${classPrefix}-${numberClassSuffix}`">{{ numberFormatted }}</span>
   </span>
 </template>
 

@@ -1,6 +1,6 @@
 <template lang="html">
   <span>
-    Cart: <strong>{{ quantity }}</strong>
+    Cart <strong class="cart-icon-quantity">{{ quantity }}</strong>
   </span>
 </template>
 
