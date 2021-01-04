@@ -9,7 +9,7 @@ layout: default
     </div>
     <div class="col text-right cart-icon-quantity-wrapper"
       data-controller="cart-quantity" data-action="cart-quantity-updated@document->cart-quantity#updateQuantity">
-      Cart <strong data-target="cart-quantity.quantity" class="cart-icon-quantity">{{ site.data.cart.items | size }}</strong>
+      Cart <strong data-cart-quantity-target="quantity" class="cart-icon-quantity">{{ site.data.cart.items | size }}</strong>
     </div>
   </div>
 </div>
@@ -25,7 +25,8 @@ layout: default
       <div class="col-2 col-sm-2 d-flex flex-column justify-content-center">
         <label class="sr-only">Quantity</label>
         <input type="number" value="{{ item.quantity }}" 
-         data-target="cart-item.quantity cart.quantity"
+         data-cart-target="quantity"
+         data-cart-item-target="quantity"
          data-action="change->cart#updateSubtotal change->cart-item#updateSubtotal change->cart#broadcastNewQuantity"
          data-item-price="{{ item.unit_price }}"
          />
@@ -33,7 +34,7 @@ layout: default
       <div class="col-4 col-sm-3 d-flex flex-column align-items-end text-right justify-content-center">
         <span class="cart-item-price">
           <span class="cart-item-price-currency">$</span><span class="cart-item-price-subtotal"
-           data-target="cart-item.subtotal">{{ item.subtotal }}</span>
+           data-cart-item-target="subtotal">{{ item.subtotal }}</span>
         </span>
       </div>
     </div>
@@ -46,7 +47,7 @@ layout: default
     <div class="col-3 text-right">
       <strong class="cart-subtotal-price">
         <span class="cart-subtotal-price-currency">$</span><span class="cart-subtotal-price-subtotal"
-         data-target="cart.subtotal" >{{ site.data.cart.subtotal }}</span>
+         data-cart-target="subtotal" >{{ site.data.cart.subtotal }}</span>
       </strong>
     </div>
   </div>
